@@ -1,0 +1,616 @@
+body {
+  font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style: bold;
+  background: rgba(242, 242, 242, .6);
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box
+}
+/* NAVBAR */
+/* Barra de navegación */
+.navbar {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: #ce81bb;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+/* Estilo para los enlaces del menú */
+.navbar a {
+  font-weight: 200;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #2392b0;
+  border-radius: 4px;
+}
+
+/* Estilo para el logo o nombre */
+.logo {
+  font-size: 24px;
+  color: white;
+}
+
+/* Menú hamburguesa (icono) */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Enlaces del menú en su forma normal */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Enlaces del menú ocultos en pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Asegura que los enlaces ocupen todo el contenedor */
+  .navbar {
+    flex-direction: column; /* Cambiar la dirección para que los enlaces se apilen verticalmente */
+    padding: 10px; /* Ajustar el relleno para que se vean mejor en dispositivos pequeños */
+  }
+
+  .navbar-links {
+    display: none; /* Ocultar los enlaces de forma predeterminada */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px; /* Ajuste de la distancia desde el logo o barra */
+    left: 0;
+    background-color: #31b0d5;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  /* Estilo para los enlaces dentro del menú en pantallas pequeñas */
+  .navbar-links a {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #2392b0;
+  }
+
+  /* Mostrar el icono de menú hamburguesa en pantallas pequeñas */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Activar el menú cuando se hace clic en el icono */
+  .navbar-links.active {
+    display: flex; /* Mostrar los enlaces cuando se activa el menú */
+  }
+}
+
+/* Estilo para los anclajes para hacer scroll suave */
+.anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
+/*JUMBOTRON*/
+/* Jumbotron section - Fullscreen height, centered content */
+.jumbotron {
+  height: 100vh; /* Altura del jumbotron igual a la altura total de la vista */
+  background: #31b0d5; /* Fondo azul */
+  margin-bottom: 0; /* Eliminar margen inferior */
+
+  display: flex;
+  flex-direction: column; /* Los elementos se alinearán en columna */
+  justify-content: center; /* Centrar el contenido verticalmente */
+  align-items: center; /* Centrar el contenido horizontalmente */
+  text-align: center; /* Centrar el texto dentro del jumbotron */
+}
+
+/* Textos dentro del jumbotron */
+.jumbotron-text {
+  font-weight: 400; /* Peso de fuente normal para el subtítulo */
+  font-size: 2em; /* Tamaño del texto */
+  color: white; /* Color del texto blanco */
+  padding-top: 150px; /* Espacio superior para el título */
+}
+
+/* Estilo para el título principal (nombre) */
+.jumbotron-text h1 {
+  text-transform: uppercase; /* Convertir el nombre a mayúsculas */
+  font-weight: 800; /* Hacer el nombre más grueso */
+ font-size: 10px;
+  margin-bottom: 0; /* Eliminar el margen inferior */
+}
+
+/* Estilo para el párrafo debajo del nombre */
+.jumbotron-text p {
+  margin: 0; /* Eliminar margen alrededor del párrafo */
+  font-size: 1.2em; /* Ajustar el tamaño del texto del párrafo */
+  color: rgb(5, 2, 2); /* Asegurarse que el párrafo también sea blanco */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Estilos para los enlaces sociales */
+.ul-social {
+  text-align: center; /* Centrar los enlaces */
+  padding-left: 0; /* Eliminar el relleno izquierdo */
+  margin-top: 20px; /* Espacio superior para separar los enlaces sociales */
+}
+
+.li-social-links {
+  display: inline-block; /* Asegurar que los enlaces sociales se muestren en línea */
+  list-style: none; /* Eliminar los puntos de lista */
+  margin: 0 10px; /* Espaciado horizontal entre los enlaces */
+}
+
+/* Estilo de los iconos sociales */
+.social {
+  font-size: 2em; /* Tamaño grande para los iconos sociales */
+  color: white; /* Color blanco para los iconos */
+  padding: 20px; /* Relleno alrededor de los iconos */
+  transition: color 0.3s ease; /* Transición suave al cambiar el color */
+}
+
+/* Efecto al pasar el mouse sobre los iconos sociales */
+.social:hover {
+  color: #f8f8f8; /* Cambiar el color al pasar el mouse */
+}
+
+/* Media Queries - Adaptar la sección para pantallas más pequeñas */
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+  .jumbotron-text h1 {
+    font-size: 4em; /* Aumentar el tamaño del título en pantallas grandes */
+  }
+  .jumbotron-text {
+    padding-top: 200px; /* Más espacio superior para pantallas grandes */
+  }
+}
+
+/* Pantallas medianas */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .jumbotron-text h1 {
+    font-size: 3em; /* Ajustar el tamaño del título */
+  }
+  .jumbotron-text {
+    padding-top: 100px; /* Reducir el espacio superior en pantallas medianas */
+  }
+}
+
+/* Pantallas pequeñas - Móviles */
+@media (max-width: 768px) {
+  .jumbotron-text {
+    font-size: 1.5em; /* Reducir el tamaño del texto */
+    padding-top: 50px; /* Menos espacio superior */
+  }
+
+  .jumbotron-text h1 {
+    font-size: 2.5em; /* Reducir aún más el tamaño del nombre */
+  }
+
+  .social {
+    font-size: 1.5em; /* Reducir el tamaño de los iconos en móviles */
+    padding: 10px; /* Reducir el espacio alrededor de los iconos */
+  }
+}
+
+
+/*...............................*/
+/*................SOBRE MI ..........*/
+/*...............................*/
+/* Estilos para la flecha de abajo */
+#down-arrow {
+  margin-top: auto; 
+  text-align: center; 
+  margin-bottom: 50px; /* Espacio inferior */
+}
+
+/* Estilo para el enlace de la flecha */
+#down-arrow a {
+  color: white; /* Color blanco para el enlace */
+  font-size: 2em; /* Tamaño del enlace */
+  text-decoration: none; /* Eliminar subrayado */
+  transition: color 0.3s ease; /* Transición suave del color */
+}
+
+/* Efecto al pasar el mouse sobre la flecha */
+#down-arrow a:hover {
+  color: #2392b0; /* Cambiar color al pasar el mouse */
+}
+
+/* Estilos para el contenedor y las filas */
+.container{
+  display: flex; /* Usamos flexbox para el diseño */
+  width: 100%;
+  flex-direction: column; /* Coloca los elementos en una columna */
+
+}
+
+.row {
+  display: flex; /* Usamos flexbox en las filas */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten cuando no caben */
+}
+
+/* Fondo blanco para algunas secciones */
+.white {
+  background: white;
+}
+
+/* Estilos para los contenidos laterales */
+.side-content {
+  flex: 0 0 16.6%; /* Ancho del contenido lateral (16.6% del contenedor) */
+  padding: 15px; /* Espaciado interno */
+}
+
+.main-content {
+  flex: 0 0 66.6%; 
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding: 15px; 
+}
+
+.side-content-sm {
+  flex: 0 0 10%; 
+}
+
+.main-content-lg {
+  flex: 0 0 80%; /* Ancho mayor del contenido principal en pantallas grandes */
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding: 15px; /* Espaciado interno */
+}
+
+/* Estilo de sombra para los elementos */
+.box-shadow {
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75); /* Sombra para navegadores webkit */
+  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75); /* Sombra para navegadores mozilla */
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75); /* Sombra estándar */
+}
+
+/* Estilo del encabezado h2 */
+h2 {
+  font-weight: 200;
+  font-size: 2rem;
+  color: #31b0d5; /* Color azul */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px; /* Añade margen inferior */
+}
+
+/* Cuerpo del contenido */
+.content-body {
+  line-height: 1.5; /* Mejorar la legibilidad con mayor interlineado */
+  color: rgba(0, 0, 0, .75); /* Color gris oscuro */
+  font-size: 1em; /* Tamaño de fuente base */
+  padding: 15px; /* Relleno interno */
+}
+
+/* Estilos Responsivos */
+
+/* Pantallas grandes (más de 1200px) */
+@media (min-width: 1200px) {
+  .side-content {
+    flex: 0 0 16.6%; /* Mantener el ancho de 16.6% para el contenido lateral */
+  }
+
+  .main-content {
+    flex: 0 0 66.6%; /* Mantener el ancho de 66.6% para el contenido principal */
+  }
+}
+
+/* Pantallas medianas (entre 768px y 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .side-content-sm {
+    flex: 0 0 20%; /* Aumentar el ancho del contenido lateral a 20% */
+  }
+
+  .main-content-lg {
+    flex: 0 0 70%; /* Reducir el ancho del contenido principal a 70% */
+  }
+
+  h2 {
+    font-size: 1.8rem; /* Ajustar el tamaño de la fuente para pantallas medianas */
+  }
+
+  .content-body {
+    font-size: 1.1em; /* Aumentar el tamaño del texto para mejorar la legibilidad */
+  }
+}
+
+/* Pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  /* En pantallas pequeñas, usamos un diseño más vertical */
+  .container {
+    flex-direction: column; /* Cambiar a columna */
+  }
+
+  .side-content-sm {
+    flex: 0 0 0%; /* Eliminar contenido lateral en móviles */
+  }
+
+  .main-content-lg {
+    flex: 0 0 100%; /* El contenido principal ocupa todo el ancho */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Reducir el tamaño del encabezado */
+  }
+
+  .content-body {
+    font-size: 1em; /* Reducir el tamaño del texto para pantallas pequeñas */
+  }
+
+  /* Modificar la flecha hacia abajo */
+  #down-arrow {
+    margin-bottom: 20px; /* Reducir el espacio inferior */
+  }
+}
+
+/*EDUCATION*/
+/* Estilo general para las tarjetas */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+  margin-bottom: 30px;
+}
+
+.card-header {
+  padding: .75rem 1.25rem;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.card-content {
+  padding: .25rem 1.25rem;
+  flex: 1 1 auto;
+}
+
+h4 {
+  margin: 0;
+  font-weight: 400;
+  color: grey;
+}
+
+.job-title {
+  float: right; /* Coloca el título del trabajo a la derecha */
+}
+
+/* Proyectos */
+.project-card {
+  display: flex;
+  flex-direction: row; /* Disposición en fila */
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 5px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  flex: 1 0 auto;
+}
+
+.project-image img {
+  display: block;
+  width: 100%; /* Hacer que la imagen ocupe todo el ancho disponible */
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.project-content {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Habilidades (Skills) */
+.ul-skills {
+  text-align: center;
+  padding-left: 0;
+}
+
+.li-skills {
+  display: inline-block;
+  margin: 7px;
+  padding: 5px 10px;
+  color: white;
+  background: #31b0d5;
+  list-style: none;
+  cursor: default;
+  font-size: 1.2em;
+}
+
+/* Media Queries - Diseño Responsivo */
+
+/* Pantallas grandes (más de 1200px) */
+@media (min-width: 1200px) {
+  /* Las tarjetas de proyecto se mantienen en fila, ya que hay suficiente espacio */
+  .project-card {
+    display: flex;
+  }
+
+  .project-image {
+    flex: 1 0 auto;
+  }
+
+  .project-content {
+    flex: 2 1 auto; /* Hacer que el contenido del proyecto ocupe más espacio */
+  }
+}
+
+/* Pantallas medianas (entre 768px y 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  /* Rediseñar las tarjetas de proyecto en una columna para pantallas medianas */
+  .project-card {
+    flex-direction: column; /* Cambiar a una disposición en columna */
+  }
+
+  .project-image {
+    width: 100%; /* Asegurar que la imagen ocupe todo el ancho disponible */
+    border-radius: 5px 5px 0 0; /* Rondas las esquinas superiores de la imagen */
+  }
+
+  .project-content {
+    padding: 1rem; /* Reducir el relleno para pantallas medianas */
+  }
+
+  /* Ajustar la visualización de habilidades en pantallas medianas */
+  .li-skills {
+    font-size: 1.1em; /* Reducir el tamaño de la fuente */
+    padding: 4px 8px; /* Reducir el espaciado de los elementos de habilidades */
+  }
+}
+
+/* Pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  /* Las tarjetas de proyecto se apilan verticalmente en pantallas pequeñas */
+  .project-card {
+    flex-direction: column; /* Cambiar a columna */
+    margin-bottom: 20px; /* Reducir el margen inferior */
+  }
+
+  .project-image {
+    width: 100%; /* Hacer que la imagen ocupe todo el ancho */
+    border-radius: 5px 5px 0 0; /* Redondear las esquinas superiores de la imagen */
+  }
+
+  .project-content {
+    padding: 1rem; /* Reducir el relleno para pantallas más pequeñas */
+  }
+
+  .card {
+    margin-bottom: 20px; /* Reducir el margen inferior de las tarjetas */
+  }
+
+  .ul-skills {
+    padding-left: 0;
+    text-align: center; /* Centrar las habilidades en móviles */
+  }
+
+  .li-skills {
+    font-size: 1em; /* Reducir el tamaño de la fuente */
+    padding: 5px 8px; /* Reducir el tamaño del espaciado */
+  }
+}
+
+/* Sección de Contacto */
+.blue {
+  background: #3498db; /* Color de fondo azul */
+  text-align: center;
+  padding: 20px 0; /* Añadido relleno para dar espacio en la parte superior e inferior */
+}
+
+.contact {
+  max-width: 500px; /* Limitar el ancho del formulario */
+  margin: 0 auto; /* Centrar el formulario en la pantalla */
+  padding: 15px; /* Añadir algo de espacio interno */
+  background-color: #fff; /* Fondo blanco para el formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para el formulario */
+}
+
+/* Estilo para inputs y textarea */
+.contact input, .contact textarea {
+  display: block;
+  width: 100%; /* Asegura que los campos ocupen el 100% del ancho disponible */
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 15px; /* Añadir más espacio entre los campos */
+  background: #1d6fa5; /* Fondo azul para campos */
+  color: #fff; /* Texto blanco */
+  font-size: 1em; /* Ajuste de tamaño de texto */
+  -webkit-transition: .5s ease all; /* Efecto suave en el cambio de estado */
+  transition: .5s ease all;
+}
+
+/* Estilo específico para el textarea */
+.contact textarea {
+  height: 150px; /* Altura fija para el área de texto */
+  resize: none; /* Desactivar el cambio de tamaño manual del textarea */
+}
+
+/* Estilo para el botón de envío */
+.contact button {
+  display: block;
+  width: 100%;
+  background: #fff; /* Fondo blanco */
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+  color: #3498db; /* Color azul para el texto del botón */
+  font-weight: 700; /* Negrita para el texto del botón */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Sombra sutil */
+  cursor: pointer; /* Cambiar el cursor para indicar que es interactivo */
+  -webkit-transition: .5s ease all; /* Efecto suave en el cambio de estado */
+  transition: .5s ease all;
+}
+
+.contact button:hover {
+  background: #3498db; /* Cambiar fondo a azul en el hover */
+  color: white; /* Cambiar el texto a blanco */
+}
+
+/* Estilo para el texto blanco */
+.white-text {
+  color: white;
+}
+
+/* Media Queries - Diseño Responsivo */
+
+/* Pantallas grandes (más de 1200px) */
+@media (min-width: 1200px) {
+  .contact {
+    max-width: 600px; /* Aumentar el ancho del formulario en pantallas grandes */
+  }
+}
+
+/* Pantallas medianas (entre 768px y 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .contact {
+    max-width: 80%; /* El formulario ocupa el 80% del ancho de la pantalla */
+    padding: 20px; /* Añadir más espacio interior */
+  }
+
+  /* Hacer que los campos sean más grandes y accesibles */
+  .contact input, .contact textarea {
+    font-size: 1.1em; /* Aumentar el tamaño del texto en pantallas medianas */
+  }
+}
+
+/* Pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  .contact {
+    max-width: 90%; /* Asegurar que el formulario ocupe el 90% del ancho en pantallas pequeñas */
+    padding: 15px; /* Reducir el relleno para ajustarse mejor */
+  }
+
+  .contact input, .contact textarea {
+    font-size: 1em; /* Ajustar el tamaño de fuente */
+    padding: 10px; /* Reducir el relleno de los campos para móviles */
+  }
+
+  .contact button {
+    font-size: 1.1em; /* Aumentar el tamaño de la fuente en el botón */
+    padding: 12px 25px; /* Hacer que el botón sea más grande y cómodo en pantallas pequeñas */
+  }
+}
